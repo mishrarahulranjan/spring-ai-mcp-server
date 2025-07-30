@@ -14,7 +14,7 @@ This Spring Boot application demonstrates how to integrate external APIs as AI t
 
 * **API Endpoint:** `https://api.genderize.io/`
 
-* **Usage Example (via AI Chat):** "What is the gender of John?", "Is Sarah male or female?"
+* **Usage Example ():** "What is the gender of John?", "Is Sarah male or female?"
 
 ### 2. `searchBooks` (Open Library API)
 
@@ -29,3 +29,4 @@ This Spring Boot application demonstrates how to integrate external APIs as AI t
 
 Build and Run
 ![](images/spring-mcp-server_build.jpeg)
+
