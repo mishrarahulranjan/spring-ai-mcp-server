@@ -28,3 +28,4 @@ This Spring Boot application demonstrates how to integrate external APIs as AI t
 **Run the Spring Boot Application and test:**
 
 Build and Run
+![](images/spring-mcp-server_build.jpeg)
