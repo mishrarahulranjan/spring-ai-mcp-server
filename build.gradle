@@ -1,0 +1,64 @@
+plugins {
+    id 'java' // Apply the Java plugin if it's a Java project
+    id("io.spring.dependency-management") version "1.1.4" // Spring Dependency Management Plugin
+    id 'org.springframework.boot' version '3.5.4'
+}
+
+group 'org.rr.ai'
+version '1.0-SNAPSHOT'
+
+bootJar {
+    // Replace 'com.example.yourapp.YourApplication' with the actual fully qualified name of your main class
+    mainClass = 'com.rr.ai.SpringAiStarter'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // Sets the Java version
+    }
+}
+
+// Or, if you prefer to define properties explicitly:
+ext {
+    javaVersion = 21
+    springAiVersion = '1.0.0'
+}
+
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "spring-milestones"
+        url = uri("https://repo.spring.io/milestone")
+        mavenContent {
+            releasesOnly()
+        }
+    }
+}
+
+
+// Core Spring AI module (contains ChatClient, Prompt, ChatMemory, SimpleLoggerAdvisor, etc.)
+dependencyManagement {
+    imports{
+        mavenBom 'org.springframework.ai:spring-ai-bom:1.0.0'
+    }
+}
+dependencies {
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    annotationProcessor 'org.projectlombok:lombok'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'org.springframework.ai:spring-ai-starter-mcp-server-webflux'
+
+}
+
+test {
+    useJUnitPlatform()
+}

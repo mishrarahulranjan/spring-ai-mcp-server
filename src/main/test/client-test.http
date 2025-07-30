@@ -1,0 +1,9 @@
+
+### Generate topic 2 book for topic
+GET http://localhost:8081/api/book/java
+Accept: application/json
+
+
+### Generate gender for name
+GET http://localhost:8081/api/gender/John
+Accept: application/json

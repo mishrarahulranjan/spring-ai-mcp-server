@@ -1,0 +1,13 @@
+external:
+  api:
+    open:
+      library:
+        url: https://openlibrary.org
+        record:
+          limit: 2
+    genderize:
+      library:
+        url: https://api.genderize.io
+
+server:
+  port : 8081
