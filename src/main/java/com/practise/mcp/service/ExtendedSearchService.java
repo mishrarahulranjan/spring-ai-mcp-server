@@ -2,6 +2,7 @@ package com.practise.mcp.service;
 
 import com.practise.mcp.entity.BookDoc;
 import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.tool.annotation.ToolParam;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -18,12 +19,12 @@ public class ExtendedSearchService {
     }
 
     @Tool(description = "get top 2 books name for topic")
-    Mono<List<BookDoc>> getTop2Books(String topic){
+    Mono<List<BookDoc>> getTop2Books(@ToolParam(description = "Topic") String topic){
         return openLibraryClientService.searchBooks(topic);
     }
 
     @Tool(description = "get gender with highest probability for name")
-    Mono<String> getGender(String name){
+    Mono<String> getGender(@ToolParam(description = "Name") String name){
         return genderizeClientService.getGenderForName(name);
     }
 
