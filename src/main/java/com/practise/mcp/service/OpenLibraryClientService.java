@@ -30,10 +30,10 @@ public class OpenLibraryClientService {
         return openLibraryWebClient.get()
                 .uri(uriBuilder -> uriBuilder.path("/search.json")
                         .queryParam("q", query)
-                        .queryParam("size", recordLimit)
+                        .queryParam("limit", recordLimit)
                         .build())
                 .retrieve()
                 .bodyToMono(OpenLibraryResponse.class)
-                .map(OpenLibraryResponse::docs);
+                .map(OpenLibraryResponse::docs) ;
     }
 }
