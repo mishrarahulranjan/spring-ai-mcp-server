@@ -1,6 +1,6 @@
 
 ### Generate topic 2 book for topic
-GET http://localhost:8081/api/book/java8
+GET http://localhost:8081/api/book/chemistry
 Accept: application/json
 
 

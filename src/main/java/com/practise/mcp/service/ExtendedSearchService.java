@@ -27,7 +27,7 @@ public class ExtendedSearchService {
         return data;
     }
 
-    @Tool(description = "get gender with highest probability for name")
+    @Tool(description = "get gender for name")
     Mono<String> getGender(@ToolParam(description = "Name") String name){
         Mono<String> data= genderizeClientService.getGenderForName(name);
         log.info("inside getGender data:{}",data);
