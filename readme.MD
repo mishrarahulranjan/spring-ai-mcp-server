@@ -30,3 +30,8 @@ This Spring Boot application demonstrates how to integrate external APIs as AI t
 Build and Run
 ![](images/spring-mcp-server_build.jpeg)
 
+**Test**
+
+curl  http://localhost:8081/sse
+
+

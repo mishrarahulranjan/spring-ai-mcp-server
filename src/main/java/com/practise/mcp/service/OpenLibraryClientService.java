@@ -2,6 +2,7 @@ package com.practise.mcp.service;
 
 import com.practise.mcp.entity.BookDoc;
 import com.practise.mcp.entity.OpenLibraryResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @Service
+@Slf4j
 public class OpenLibraryClientService {
 
     private final WebClient openLibraryWebClient;
@@ -24,6 +26,7 @@ public class OpenLibraryClientService {
     }
 
     public Mono<List<BookDoc>> searchBooks(String query) {
+        log.info("inside searchBooks for query:{}",query);
         return openLibraryWebClient.get()
                 .uri(uriBuilder -> uriBuilder.path("/search.json")
                         .queryParam("q", query)

@@ -1,12 +1,14 @@
 package com.practise.mcp.service;
 
 import com.practise.mcp.entity.GenderizeResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Service
+@Slf4j
 public class GenderizeClientService {
 
     private final WebClient genderizeWebClient;
@@ -17,6 +19,7 @@ public class GenderizeClientService {
     }
 
     public Mono<String> getGenderForName(String name) {
+        log.info("inside getGenderForName for name:{}",name);
         return genderizeWebClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/")

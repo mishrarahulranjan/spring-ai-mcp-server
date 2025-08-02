@@ -10,11 +10,16 @@ external:
         url: https://api.genderize.io
 
 server:
-  port : 8081
+  port: 8081
 
 spring:
+  application:
+    name: spring-ai-mcp-server
   ai:
     mcp:
       server:
+        enabled: true
+        transport: sse
         name: my-custom-mcp-server
         version: 1.0.0
+        port: 8081
